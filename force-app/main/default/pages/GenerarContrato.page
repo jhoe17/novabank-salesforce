@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity"
+           extensions="GenerarContratoController"
+           action="{!generarYRedirigir}"
+           showHeader="false"
+           sidebar="false">
+</apex:page>

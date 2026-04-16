@@ -1,0 +1,71 @@
+<apex:page standardController="Opportunity"
+           extensions="ContratoOpportunityController"
+           renderAs="pdf"
+           showHeader="false"
+           sidebar="false"
+           applyHtmlTag="true"
+           applyBodyTag="false">
+
+    <html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 12px;
+                margin: 20px;
+            }
+            h1 {
+                text-align: center;
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 14px;
+                margin-top: 20px;
+                border-bottom: 1px solid #000;
+                padding-bottom: 4px;
+            }
+            .field {
+                margin: 6px 0;
+            }
+            .label {
+                font-weight: bold;
+            }
+            .box {
+                border: 1px solid #000;
+                padding: 10px;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Contrato de Tarjeta de Crédito</h1>
+
+        <h2>Datos del Cliente</h2>
+        <div class="field"><span class="label">Cliente:</span> {!opportunity.Account.Name}</div>
+        <div class="field"><span class="label">DNI:</span> {!dniCliente}</div>
+
+        <h2>Datos de la Oportunidad</h2>
+        <div class="field"><span class="label">Oportunidad:</span> {!opportunity.Name}</div>
+        <div class="field"><span class="label">Producto:</span> {!productName}</div>
+        <div class="field"><span class="label">Línea de crédito:</span> {!opportunity.Linea_Credito__c}</div>
+        <div class="field"><span class="label">Tasa de interés:</span> {!interestRate}%</div>
+        <div class="field"><span class="label">Fecha de pago:</span> {!opportunity.Fecha_de_Pago__c}</div>
+        <div class="field"><span class="label">Disponibilidad de retiro:</span> {!opportunity.Disponibilidad_Retiro__c}</div>
+        <div class="field"><span class="label">Estado:</span> {!opportunity.StageName}</div>
+
+        <h2>Condiciones</h2>
+        <div class="box">
+            El presente documento formaliza la contratación del producto financiero aprobado
+            por NovaBank. El cliente acepta las condiciones de uso de la tarjeta, la línea
+            de crédito otorgada, la tasa de interés aplicable, la fecha de pago y las demás
+            cláusulas operativas y regulatorias vigentes.
+        </div>
+
+        <h2>Firmas</h2>
+        <div class="field">Firma del Cliente: ____________________________</div>
+        <div class="field">Firma del Representante NovaBank: ____________________________</div>
+
+    </body>
+    </html>
+</apex:page>
